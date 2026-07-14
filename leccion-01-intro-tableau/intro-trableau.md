@@ -94,7 +94,7 @@ Detectar si un campo debería ser número, fecha o texto y corregirlo.
 ## Fase 3 · Configuración regional y formatos
 
 ### 🎯 Objetivo
-Evitar errores comunes con números y fechas.
+Evitar errores comunes con números y fechas. Un número aparece como texto → no se puede sumar ni usar en gráficos.
 
 ### 🧠 Qué es la configuración regional
 Define cómo Tableau interpreta:
@@ -103,8 +103,49 @@ Define cómo Tableau interpreta:
 - formatos de fecha,
 - moneda.
 
-### ⚠️ Problema típico
-Un número aparece como texto → no se puede sumar ni usar en gráficos.
+### Airbnb y la configuración regional
+
+El dataset de Airbnb está preparado con el formato de **Estados Unidos**. Cuando cambias la configuración regional a **English (United States)**, Tableau interpreta correctamente:
+
+* Los **números decimales** (`40.4168`).
+* Las **fechas** (por ejemplo, `7/15/2025` se interpreta como mes/día/año).
+* Los **separadores** de miles y decimales.
+
+Por eso identifica automáticamente que `Latitude` y `Longitude` son números decimales y les puede asignar el rol geográfico.
+
+### ¿Qué ocurre con la configuración española?
+
+Si Tableau está usando la configuración regional de España, espera normalmente:
+
+* Decimales con **coma** (`40,4168`).
+* Fechas en formato **día/mes/año**.
+
+Al encontrarse valores con punto (`40.4168`), puede interpretarlos como texto o no reconocer correctamente el tipo de dato.
+
+### Ejemplo para explicar en clase
+
+Imagina este valor:
+
+```
+40.4168
+```
+
+* **Locale = English (United States)** → lo interpreta como un número decimal ✅
+* **Locale = Español (España)** → puede no reconocerlo correctamente y tratarlo como texto ❌
+
+Lo mismo sucede con las fechas:
+
+```
+04/07/2025
+```
+
+* En EE. UU. → **7 de abril de 2025** (mes/día/año).
+* En España → **4 de julio de 2025** (día/mes/año).
+
+### Idea clave 
+> **La configuración regional indica a Tableau cómo debe interpretar los datos del fichero (números, fechas, moneda, etc.). Si el formato del archivo y la configuración regional no coinciden, Tableau puede asignar tipos de datos incorrectos.**
+
+Es un detalle muy útil de mencionar cuando trabajéis con datasets descargados de Kaggle o de fuentes internacionales, ya que muchos están generados con formato estadounidense.
 
 ### 🛠️ Qué podemos hacer
 - Cambiar la configuración regional del libro.
@@ -177,23 +218,7 @@ Guardar y estructurar correctamente un proyecto de Tableau.
 
 ---
 
-## Fase 7 · Publicar en Tableau Public
 
-### 🎯 Objetivo
-Compartir tu trabajo y usar Tableau como portfolio.
-
-### 🧠 Qué es Tableau Public
-- Plataforma online para publicar visualizaciones.
-- Todo lo que subes es público.
-
-### ⚠️ Importante
-- No subir datos sensibles.
-- Revisar antes de publicar.
-
-✅ **Qué deberías saber hacer**  
-Publicar un libro en Tableau Public y compartir el enlace.
-
----
 
 ## Fase 8 · Inspiración: Viz of the Day
 
