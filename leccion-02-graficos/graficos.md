@@ -38,7 +38,7 @@ Ejemplos:
 
 ---
 
-##  3 · La hoja de trabajo de Tableau
+##  3 · Hoja de trabajo de Tableau
 
 - Cada hoja es una representacion unica de una visualizacion
 - Hay que hacer que cada hoja tenga un nombre
@@ -208,15 +208,24 @@ Compartir visualizaciones y construir portfolio. Este bloque tiene doble funció
 - Técnica (publicar)
 - Profesional (portfolio)
 
+
 ### 🧠 Qué es Tableau Public
 - Plataforma gratuita
 - Todo lo publicado es público
 - Ideal como portfolio profesional
+- - Plataforma online para publicar visualizaciones.
+- Todo lo que subes es público.
 
 ### 📌 Buenas prácticas
 - No usar datos sensibles
 - Nombrar bien proyectos
 - Cuidar el diseño
+- Revisar antes de publicar.
+
 
 > “Publicar es parte del aprendizaje.”
 
+✅ **Qué deberías saber hacer**  
+Publicar un libro en Tableau Public y compartir el enlace.
+
+---
