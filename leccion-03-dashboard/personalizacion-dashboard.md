@@ -35,6 +35,90 @@ La idea es pasar de “hacer gráficos” a **diseñar experiencias visuales com
 
 ---
 
+---
+
+## 📊 Gráficos con doble eje
+
+Permiten mostrar dos métricas diferentes en el mismo gráfico.
+
+Ejemplo:
+
+* Ventas (€)
+* Número de unidades
+
+### Ventajas
+
+* Comparar dos variables.
+* Ahorrar espacio.
+* Ver relaciones.
+
+### Precauciones
+
+* Deben tener sentido juntas.
+* Usar colores distintos.
+* No abusar del doble eje.
+
+###  ✅ Crear ejes dobles
+
+Pasos:
+
+1. Poner la segunda métrica.
+2. Convertir a eje doble.
+3. Personalizar cómo se ven.
+4. Sincronizar ejes.
+5. Cuidado con las etiquetas.
+
+
+---
+
+# 🍩 Gráficos Donut
+
+Un donut es un gráfico de pastel con un agujero en el centro.
+
+Ese espacio central permite añadir:
+
+* Un total.
+* Una métrica clave.
+* Un texto resumen.
+
+---
+
+## Cuándo usarlo
+
+* Pocas categorías (2–5).
+* Para mostrar partes de un todo.
+* En dashboards ejecutivos.
+
+## Cuándo evitarlo
+
+* Muchas categorías.
+* Comparaciones precisas.
+* Valores muy similares.
+
+👉 Si necesitas comparar con precisión, mejor usar barras.
+
+## 🍩 Crear gráficos de donuts
+
+1. Partiendo del grafico de barras.
+2. Poner 1 dimensión.
+3. Duplicar el 1.
+4. Quitar todo al segundo.
+5. Al 1º aumentar tamaño.
+
+---
+
+## Cómo crear un donut en Tableau
+
+Tableau no lo tiene por defecto, pero se puede hacer:
+
+1. Crear un gráfico de pastel.
+2. Duplicarlo.
+3. Convertir el segundo en un círculo pequeño.
+4. Superponerlos en un dashboard.
+5. (Opcional) Añadir un total en el centro.
+---
+
+
 # 🎨 Personalización de gráficos
 
 Personalizar un gráfico no significa decorarlo.
@@ -102,41 +186,7 @@ Se usan para:
 
 👉 Las anotaciones convierten un gráfico en una historia.
 
----
 
-## 📊 Gráficos con doble eje
-
-Permiten mostrar dos métricas diferentes en el mismo gráfico.
-
-Ejemplo:
-
-* Ventas (€)
-* Número de unidades
-
-### Ventajas
-
-* Comparar dos variables.
-* Ahorrar espacio.
-* Ver relaciones.
-
-### Precauciones
-
-* Deben tener sentido juntas.
-* Usar colores distintos.
-* No abusar del doble eje.
-
-###  ✅ Crear ejes dobles
-
-Pasos:
-
-1. Poner la segunda métrica.
-2. Convertir a eje doble.
-3. Personalizar cómo se ven.
-4. Sincronizar ejes.
-5. Cuidado con las etiquetas.
-
-
----
 
 ## 🔺 Formas personalizadas
 
@@ -159,52 +209,6 @@ Consejos:
 * Formas.
 * Crear carpeta con las imágenes.
 ---
-
-# 🍩 Gráficos Donut
-
-Un donut es un gráfico de pastel con un agujero en el centro.
-
-Ese espacio central permite añadir:
-
-* Un total.
-* Una métrica clave.
-* Un texto resumen.
-
----
-
-## Cuándo usarlo
-
-* Pocas categorías (2–5).
-* Para mostrar partes de un todo.
-* En dashboards ejecutivos.
-
-## Cuándo evitarlo
-
-* Muchas categorías.
-* Comparaciones precisas.
-* Valores muy similares.
-
-👉 Si necesitas comparar con precisión, mejor usar barras.
-
-## 🍩 Crear gráficos de donuts
-
-1. Partiendo del grafico de barras.
-2. Poner 1 dimensión.
-3. Duplicar el 1.
-4. Quitar todo al segundo.
-5. Al 1º aumentar tamaño.
-
----
-
-## Cómo crear un donut en Tableau
-
-Tableau no lo tiene por defecto, pero se puede hacer:
-
-1. Crear un gráfico de pastel.
-2. Duplicarlo.
-3. Convertir el segundo en un círculo pequeño.
-4. Superponerlos en un dashboard.
-5. (Opcional) Añadir un total en el centro.
 
 ---
 
@@ -353,7 +357,79 @@ Tipos:
 
 ---
 
-# 🌍 8. Publicar en Tableau Public
+
+# Elementos Visuales en Dashboards
+
+Mejoran navegación, estética y experiencia de usuario.
+
+---
+
+## 🖼 Imágenes
+
+Sirven para:
+
+* Logos.
+* Encabezados.
+* Contexto visual.
+
+Se añaden desde:
+**Objetos → Imagen**
+
+Recomendación:
+
+* Usar PNG o JPG optimizados.
+
+---
+
+## 🔘 Botones de navegación
+
+Permiten:
+
+* Ir a otra hoja.
+* Ir a otro dashboard.
+* Crear menús.
+
+Se crean desde:
+**Objetos → Botón de navegación**
+
+Útiles para:
+
+* Crear estructura tipo web.
+* Añadir botón “volver atrás”.
+
+---
+
+## 👁 Botón mostrar/ocultar
+
+Permite:
+
+* Mostrar filtros avanzados.
+* Ocultar paneles.
+* Hacer dashboard más limpio.
+
+Pasos:
+
+1. Agrupar elementos en contenedor.
+2. Activar "Agregar botón mostrar/ocultar".
+
+---
+
+## 📝 Textos
+
+Sirven para:
+
+* Títulos.
+* Subtítulos.
+* Instrucciones.
+
+Buenas prácticas:
+
+* Textos breves.
+* Claros.
+* No saturar.
+
+---
+# 🌍 Publicar en Tableau Public
 
 Permite:
 
@@ -364,20 +440,3 @@ Permite:
 
 ⚠️ Todo lo que se publica es público.
 No usar datos sensibles.
-
----
-
-# 🧠 Conclusión
-
-En estas lecciones aprendemos que:
-
-* Un gráfico debe ser claro.
-* La personalización mejora la comprensión.
-* Un dashboard tiene un objetivo.
-* El diseño importa tanto como los datos.
-* Un buen dashboard permite actuar.
-
-El objetivo final no es solo mostrar datos,
-sino **ayudar a tomar decisiones con ellos**.
-
-
