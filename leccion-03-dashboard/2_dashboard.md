@@ -77,6 +77,41 @@ Usa la metodología de diseño de S.C.R.A.P
 ![](scrap.jpeg)
 
 ---
+ 
+# 📈 KPIs y Métricas
+
+Antes de diseñar un dashboard hay que preguntarse:
+
+👉 ¿Para quién es?
+👉 ¿Qué decisiones debe apoyar?
+
+## 🔹 KPI (Key Performance Indicator)
+
+Indicador estratégico ligado a objetivos y plazos.
+
+Ejemplo:
+
+* “Aumentar ventas un 10% en el próximo trimestre”
+
+## 🔹 Métrica
+
+Dato cuantificable que mide un proceso.
+
+Ejemplo:
+
+* Número de visitantes
+* Tasa de rebote
+
+### Diferencia clave
+
+| Métrica                 | KPI                        |
+| ----------------------- | -------------------------- |
+| Informativa             | Estratégico                |
+| Puede no tener objetivo | Siempre tiene meta y plazo |
+| Operativa               | Decisional                 |
+
+Un dashboard sin KPIs claros genera “parálisis por análisis” 
+---
 
 # 📐 Estructura del Dashboard
 

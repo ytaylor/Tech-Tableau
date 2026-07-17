@@ -36,3 +36,10 @@
 - Dashboard de análisis de datos de Airbnb estilo profesional, mostrando gráfico de barras comparando precio promedio por tipo de alojamiento (Casa completa, Apartamento, Habitación privada, Habitación compartida), gráfico de líneas con evolución de reservas mensuales y tasa de ocupación por trimestre, tarjetas KPI grandes mostrando total de anfitriones activos, ingresos totales generados y puntuación promedio de reseñas, mapa de calor geográfico con densidad de propiedades por ciudad, colores codificados según paleta Airbnb (rojo Airbnb #FF5A5F, turquesa #008489, gris oscuro #484848, beige cálido), estilo Tableau moderno y limpio, visualización de datos profesional, diseño minimalista, fondo blanco o gris muy claro (#F7F7F7), tipografía sans-serif limpia, espaciado generoso, aspecto corporativo premium similar a reportes internos de Airbnb --ar 16:9 --v 6
 
 
+
+###  IA: Pedirle a la IA que me diga sugerencias para mejorar el diseño de mi dashboard
+
+1. Elige un dashboard que hayas creado
+2. Describe el contexto y objetivo del dashboard
+3. Pídele a la IA que te sugiera mejoras de diseño, interactividad o narrativa
+4. Implementa las sugerencias y compara resultados. 

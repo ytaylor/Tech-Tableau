@@ -126,6 +126,17 @@ Consejos:
 * Crear carpeta con las imágenes.
 
 --- 
+
+###  Crear Paleta Personalizada 
+1. Cierra Tableau completamente
+2. Navega a la carpeta de preferencias:
+   - Windows: C:\Users\[TuUsuario]\Documents\My Tableau Repository\Preferences.tps
+   - Mac: ~/Documents/My Tableau Repository/Preferences.tps
+3. Edita el archivo Preferences.tps con un editor de texto (Notepad++, Sublime, VS Code)
+4. Añade tu paleta personalizada dentro de las etiquetas `<preferences>`
+
+
+
 ## Resumen 
 
 Para personalizar un dashboard y hacerlo más profesional, sigue estos pasos:

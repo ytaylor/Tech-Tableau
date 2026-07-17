@@ -1,9 +1,5 @@
 
-# 📊  Lección 05: Dashboards Avanzados en Tableau
-
----
-
-## 🚀 1. Introducción: Dashboards más interactivos y estratégicos
+# 📊 Dashboards Avanzados en Tableau
 
 En este bloque aprendemos a llevar los dashboards a un nivel más profesional, incorporando:
 
@@ -14,30 +10,7 @@ En este bloque aprendemos a llevar los dashboards a un nivel más profesional, i
 
 El objetivo no es solo visualizar datos, sino convertir el dashboard en una herramienta de toma de decisiones .
 
-
-## 2. Más personalizaciones
-
-###  Crear Paleta Personalizada 
-1. Cierra Tableau completamente
-2. Navega a la carpeta de preferencias:
-   - Windows: C:\Users\[TuUsuario]\Documents\My Tableau Repository\Preferences.tps
-   - Mac: ~/Documents/My Tableau Repository/Preferences.tps
-3. Edita el archivo Preferences.tps con un editor de texto (Notepad++, Sublime, VS Code)
-4. Añade tu paleta personalizada dentro de las etiquetas <preferences>:
-
-
-###  IA: Pedirle a la IA que me diga sugerencias para mejorar el diseño de mi dashboard
-
-1. Elige un dashboard que hayas creado
-2. Describe el contexto y objetivo del dashboard
-3. Pídele a la IA que te sugiera mejoras de diseño, interactividad o narrativa
-4. Implementa las sugerencias y compara resultados. 
-
-
-## 
----
-
-# 🎯 3. Acciones en Dashboards
+# 🎯 Acciones en Dashboards
 
 Las **acciones** permiten que el usuario interactúe con las visualizaciones.
 
@@ -59,7 +32,7 @@ Las **acciones** permiten que el usuario interactúe con las visualizaciones.
 
 ---
 
-# 🗂 4. Grupos de Datos
+# 🗂 Grupos de Datos
 
 Un **grupo** permite agrupar manualmente valores de una dimensión.
 
@@ -85,7 +58,7 @@ Los grupos ayudan a hacer dashboards más claros y comprensibles .
 
 ---
 
-# 🎛 5. Parámetros
+# 🎛 Parámetros
 
 Un **parámetro** es un valor dinámico independiente del dataset.
 
@@ -116,7 +89,7 @@ Los parámetros mejoran la experiencia interactiva del usuario .
 
 ---
 
-# 🧮 6. Campos Calculados
+# 🧮 Campos Calculados
 
 Permiten crear nuevas métricas o dimensiones a partir de los datos existentes.
 
@@ -133,7 +106,7 @@ Los campos calculados amplían enormemente el poder analítico de Tableau .
 
 ---
 
-# 🔢 6. Funciones en Tableau
+# 🔢 Funciones en Tableau
 
 ## 🔹 Funciones Numéricas
 
@@ -226,7 +199,7 @@ Permiten:
 
 ---
 
-# 📖 7. Historias en Tableau
+# 📖 Historias en Tableau
 
 Una **historia** es una secuencia de dashboards u hojas que construyen una narrativa.
 
@@ -244,45 +217,7 @@ Se crea desde:
 
 Ideal para presentaciones ejecutivas 
 
----
-
-# 📈 8. KPIs y Métricas
-
-Antes de diseñar un dashboard hay que preguntarse:
-
-👉 ¿Para quién es?
-👉 ¿Qué decisiones debe apoyar?
-
-## 🔹 KPI (Key Performance Indicator)
-
-Indicador estratégico ligado a objetivos y plazos.
-
-Ejemplo:
-
-* “Aumentar ventas un 10% en el próximo trimestre”
-
-## 🔹 Métrica
-
-Dato cuantificable que mide un proceso.
-
-Ejemplo:
-
-* Número de visitantes
-* Tasa de rebote
-
-### Diferencia clave
-
-| Métrica                 | KPI                        |
-| ----------------------- | -------------------------- |
-| Informativa             | Estratégico                |
-| Puede no tener objetivo | Siempre tiene meta y plazo |
-| Operativa               | Decisional                 |
-
-Un dashboard sin KPIs claros genera “parálisis por análisis” 
-
----
-
-# 🌟 9. Extensiones (Extra)
+# 🌟 Extensiones (Extra)
 
 Las extensiones permiten añadir funcionalidades externas al dashboard:
 
@@ -294,19 +229,3 @@ Se añaden desde:
 `Objeto → Extensión`
 
 Son un complemento avanzado para casos específicos 
-
----
-
-# 🎓 Conclusión del Módulo
-
-Después de esta lección eres capaz de:
-
-* Crear dashboards interactivos
-* Controlar visualizaciones con parámetros
-* Construir métricas calculadas
-* Aplicar funciones avanzadas
-* Crear narrativas con historias
-* Diseñar dashboards estratégicos con KPIs
-
-El siguiente nivel ya no es solo hacer gráficos,
-sino diseñar herramientas reales de decisión basadas en datos. 📊
