@@ -1,3 +1,5 @@
+
+
 ## Graficos de Lineas
 
 El **gráfico de líneas** se utiliza para mostrar la **evolución de una medida a lo largo del tiempo** o siguiendo un orden lógico.
@@ -46,7 +48,24 @@ Obtendrás una línea para cada tipo de habitación.
 
 ---
 
-## Ejes Dobles
+## Graficos con Ejes Dobles
+Permiten mostrar dos métricas diferentes en el mismo gráfico.
+
+Ejemplo:
+
+* Ventas (€)
+* Número de unidades
+
+### Ventajas
+* Comparar dos variables.
+* Ahorrar espacio.
+* Ver relaciones.
+### Precauciones
+* Deben tener sentido juntas.
+* Usar colores distintos.
+* No abusar del doble eje.
+
+### Pasos 
 1. **Arrastra la dimensión** a **Columnas**.
 
    * Ejemplo: `Neighbourhood Group`.
@@ -74,6 +93,7 @@ Obtendrás una línea para cada tipo de habitación.
 
 --- 
 ## Histogramas
+
 1. Abre una **hoja nueva**.
 2. Selecciona el **campo numérico**.
    * Ejemplo: `Price`.
@@ -92,12 +112,12 @@ Obtendrás una línea para cada tipo de habitación.
 * Añadir etiquetas.
 * Aplicar filtros.
 
-💡 **Regla para recordar:** un **histograma** muestra la **distribución de una variable numérica**, agrupando los datos en intervalos (bins). En Tableau 2026.2 basta con seleccionar la medida y elegir **Mostrarme → Histograma**.
+💡 **Regla:** un **histograma** muestra la **distribución de una variable numérica**, agrupando los datos en intervalos (bins). En Tableau 2026.2 basta con seleccionar la medida y elegir **Mostrarme → Histograma**.
 
 
 ## Pastel 
 
-### Opción 1 (la más fácil)
+### Opción 1
 
 1. Selecciona una **dimensión** (por ejemplo, `Room Type`) y una **medida** (por ejemplo, `COUNT(Number of Records)` o `Price`).
 2. Haz clic en **Mostrarme (Show Me)**.
@@ -106,7 +126,7 @@ Obtendrás una línea para cada tipo de habitación.
 
 ---
 
-### Opción 2 (manual)
+### Opción 2
 En la tarjeta **Marcas**:
 1. Cambia el tipo de marca de **Automático** a **Pastel**.
 2. Cuando el tipo sea **Pastel**, deberían aparecer opciones como:
@@ -121,6 +141,22 @@ En la tarjeta **Marcas**:
 
 ## Donut
 El **gráfico de donut (anillo)** **no existe como tipo de gráfico nativo en Tableau**. Se crea utilizando un **gráfico de pastel + un eje doble (Dual Axis)** para colocar un círculo blanco en el centro.
+Un donut es un gráfico de pastel con un agujero en el centro.
+
+Ese espacio central permite añadir:
+
+* Un total.
+* Una métrica clave.
+* Un texto resumen.
+
+### Cuándo usarlo
+* Pocas categorías (2–5).
+* Para mostrar partes de un todo.
+### Cuándo evitarlo
+* Muchas categorías.
+* Comparaciones precisas.
+* Valores muy similares.
+👉 Si necesitas comparar con precisión, mejor usar barras.
 
 ### Paso 1. Crea un gráfico de pastel
 1. Abre una hoja nueva.
@@ -163,10 +199,7 @@ En la tarjeta **Marcas** aparecerán tres pestañas:
 * Color → **Blanco**.
 * Reduce ligeramente el tamaño del círculo para que quede un agujero en el centro.
 
-
-
-
-## Mostrar el porcentaje del total
+### Mostrar el porcentaje del total
 
 1. Crea el gráfico de pastel.
 2. Arrastra la medida (por ejemplo, **COUNT(Number of Records)**) a **Etiqueta (Label)**.
@@ -181,23 +214,35 @@ En la tarjeta **Marcas** aparecerán tres pestañas:
    * **Formato** → **Números** → **Porcentaje**.
 
 
---- 
-## Personalizacion 
-- Uso del color: seleccionar color con el puntero, colores aportan información, eelegir colores diferentes segun lo que representa cada variable_ https://coolors.co/ 
-- Anotaciones
-- Formas Personalizadas
-- Quitar elementos innecesarios
-- Uso de lA IA: recraf IA: crear una paleta de colores profesionales para Airbnb
-- Destacar categorias_ 
-     - Usa el mismo color para cada categoria
-     - Usar un color para darle importancia a esa categoria
-     Usar Highlight (la más sencilla)
-        1. Crea tu gráfico.
-        2. Arrastra la dimensión (por ejemplo, Neighbourhood Group) a Color.
-        3. Haz clic derecho sobre esa dimensión en la tarjeta Marcas.
-        4. Selecciona Mostrar resaltador (Show Highlighter).
-        5. Aparecerá una caja de búsqueda a la derecha.
-        6. Cuando escribas por ejemplo Madrid, Tableau: Resaltará Madrid con su color. Atenuará el resto de categorías.
+##  Big Numbers (KPIs)
+Destacar métricas clave de forma clara.
+Explicar que no todo gráfico debe ser complejo.
+
+Un Big Number:
+- Destaca un indicador clave.
+- Resume.
+- Funciona como titular.
+
+Cuándo usarlo:
+- Inicio de dashboard.
+- Resumen ejecutivo.
+- KPI principal.
+
+Cuándo no:
+- Para mostrar tendencia.
+- Para comparar muchas categorías.
+
+
+> “Un buen dashboard empieza por un buen KPI.”
+
+# Boxplot
+
+1. Arrastrar variable numérica a filas.
+2. Convertir la variable a dimensión.
+3. En las marcas → que sea un círculo.
+4. Añadir línea de referencia sobre el eje.
+5. Elegir diagrama de cuadro.
+6. Girar el diagrama.
 
 --- 
 ## Crear agrupaciones:

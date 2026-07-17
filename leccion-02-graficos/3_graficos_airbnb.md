@@ -1,5 +1,6 @@
 
 
+
 ## 1. ¿Qué distritos tienen más alojamientos?
 ### 📊 Gráfico: **Barras**
 

@@ -23,8 +23,6 @@
     - Variantes accesibles para usuarios con daltonismo, manteniendo contraste AA/AAA.
     - Estilo corporativo moderno: limpio, ligero, con colores suaves y saturación controlada.
     - Entregar todos los colores como códigos HEX listos para usar en Tableau, Power BI.
-
-
 --- 
 
 ## Generar ejemplo de Dashboard con IA 
