@@ -1,7 +1,5 @@
 
-# 📊 Leccion 4 · Interacción y Experiencia en Dashboards
-
-## 🎯 Objetivo de la lección
+# 📊  Interacción y Experiencia en Dashboards
 
 En esta lección aprendemos a **enriquecer dashboards** en Tableau mediante:
 
@@ -14,9 +12,7 @@ El objetivo es pasar de dashboards estáticos a **dashboards interactivos y más
 
 ---
 
-# 1️⃣ Filtros
-
-## ¿Qué es un filtro?
+# Filtros
 
 Un filtro permite **limitar los datos que se muestran** en una visualización.
 
@@ -29,19 +25,7 @@ Sirve para:
 
 ---
 
-## Tipos de filtros
-
-| Tipo               | Función                         |
-| ------------------ | ------------------------------- |
-| Extract Filter     | Filtra al crear el extracto     |
-| Data Source Filter | Afecta a toda la fuente         |
-| Context Filter     | Mejora rendimiento              |
-| Filtro en hoja     | Solo afecta a una hoja          |
-| Top N              | Muestra los N mayores o menores |
-
----
-
-## 🔹 Filtros básicos
+## Filtros básicos
 
 Se aplican arrastrando un campo al estante de filtros.
 
@@ -53,7 +37,7 @@ Pueden ser:
 
 ---
 
-## 🔹 Filtros interactivos
+## Filtros interactivos
 
 Permiten que el usuario cambie los datos desde el dashboard.
 
@@ -71,7 +55,7 @@ Tipos comunes:
 
 ---
 
-## 🔹 Filtros Top N
+## Filtros Top N
 
 Permiten mostrar:
 
@@ -81,9 +65,7 @@ Permiten mostrar:
 
 Se configuran desde la pestaña **Top** en el cuadro del filtro.
 
----
-
-## ✅ Buenas prácticas
+**Buenas prácticas**
 
 * No saturar con demasiados filtros.
 * Usar filtros de contexto si hay varios.
@@ -92,7 +74,7 @@ Se configuran desde la pestaña **Top** en el cuadro del filtro.
 
 ---
 
-# 2️⃣ Mapas
+# Mapas
 
 Los mapas permiten representar **datos geográficos**.
 
@@ -102,9 +84,7 @@ Se usan para:
 * Detectar patrones por zona.
 * Visualizar concentración.
 
----
-
-## ¿Qué reconoce Tableau como geográfico?
+**¿Qué reconoce Tableau como geográfico?**
 
 * País.
 * Provincia.
@@ -118,9 +98,7 @@ Si no lo reconoce:
 * Añadir coordenadas.
 * Corregir nombres.
 
----
-
-## Cómo crear un mapa básico
+**Cómo crear un mapa básico**
 
 1. Arrastrar campo geográfico.
 2. Tableau genera el mapa automáticamente.
@@ -130,54 +108,24 @@ Si no lo reconoce:
    * Tamaño (magnitud).
    * Etiqueta (valor visible).
 
----
-
-## 🎨 Personalización de mapas
+**Personalización de mapas**
 
 * Cambiar paleta de colores.
 * Ajustar tamaño de puntos.
 * Activar nombres y límites en capas del mapa.
 * Elegir fondo (estándar, satélite, claro).
 
----
-
-## ✅ Buenas prácticas
-
+Buenas prácticas
 * Usar mapa solo si el factor geográfico es relevante.
 * No saturar con demasiados puntos.
 * Añadir filtros para mejorar lectura.
 * Asegurar correcta geolocalización.
 
----
-
-# 3️⃣ Tooltips (Descripciones emergentes)
-
-Un tooltip es la ventana que aparece al pasar el ratón sobre un punto.
-
-Sirve para:
-
-* Mostrar detalles adicionales.
-* Añadir contexto.
-* Evitar saturar el dashboard.
-
----
-
-## Personalización básica
-
-Se pueden añadir:
-
-* Texto dinámico.
-* Campos formateados.
-* Enlaces.
-* Imágenes.
-
----
 
 ## 🧩 Viz in Tooltip (Gráfica dentro del tooltip)
 
 Permite insertar una visualización secundaria dentro del tooltip.
-
-### Pasos:
+Pasos:
 
 1. Crear visualización secundaria.
 2. Ir al tooltip de la hoja principal.
@@ -189,9 +137,7 @@ Ejemplo:
 * Mapa por región.
 * Tooltip muestra ventas por producto.
 
----
-
-## 💡 Buenas prácticas
+Buenas prácticas
 
 * Que la vista secundaria sea clara y pequeña.
 * Evitar scroll horizontal.
@@ -200,8 +146,7 @@ Ejemplo:
 
 ---
 
-
-# 🎓 Buenas prácticas generales
+# 🎓 Buenas prácticas
 
 * Usar interactividad con intención.
 * Mantener coherencia visual.

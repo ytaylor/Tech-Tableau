@@ -86,6 +86,24 @@ Se usan para:
 
 👉 Las anotaciones convierten un gráfico en una historia.
 
+## 3️Tooltips (Descripciones emergentes)
+
+Un tooltip es la ventana que aparece al pasar el ratón sobre un punto.
+
+Sirve para:
+
+* Mostrar detalles adicionales.
+* Añadir contexto.
+* Evitar saturar el dashboard.
+
+Se pueden añadir:
+
+* Texto dinámico.
+* Campos formateados.
+* Enlaces.
+* Imágenes.
+
+
 ## 🔺 Formas personalizadas
 
 Permiten sustituir puntos por iconos.
