@@ -1,7 +1,5 @@
 
-# 📊 Resumen – Gráficas en Power BI
-## 1️⃣ Introducción a gráficos en Power BI 
-
+# Gráficas en Power BI
 Para crear visualizaciones en Power BI seguimos estos pasos:
 
 1. **Importar datos**
@@ -35,21 +33,48 @@ Para crear visualizaciones en Power BI seguimos estos pasos:
 Power BI ofrece muchas visualizaciones:
 
 * 📊 **Barras / Columnas** → Comparar categorías.
+  
+  - Se puede activar la etiqueta de datos para mostrar valores exactos.
+  - Hay diferentes tipos de graficas:
+    - **Grafico de barras apiladas**
+    - **Grafico de barras agrupadas**: Permite comparar varias categorías dentro de un mismo eje.
+    - **Grafico de columnas agregadas**: Permite ver la suma de varias categorías en un mismo eje.
+    - **Grafico de 100% apiladas**: Permite ver la proporción de cada categoría respecto al total.
+  
 * 📈 **Líneas** → Tendencias en el tiempo.
+  * Explicar el eje secundario y cómo se puede usar para comparar dos métricas con escalas diferentes.
+  * Tambien puedo añadir leyendas
+  * Se puede añadir año, trimestre, mes, semana, día, hora, minuto, segundo como eje X.
+* **Áreas**: Permite ver la evolución de una métrica en el tiempo, mostrando la magnitud del cambio.
+  * Grafico de areas apiladas. 
 * 🥧 **Pie (Quesito)** → Parte de un total.
-* 📍 **Dispersión (Scatter)** → Relación entre variables.
-* 🌊 **Área** → Evolución con magnitud.
-* 📊 **Histograma** → Distribución de datos.
 * 🗺 **Mapas** → Datos geográficos.
-* 🔵 **Burbujas** → Relación entre 3 variables.
+  * Activar la opción en power Bi en Opiciones - Seguridad - Habilitar visualizaciones de mapas.
+  * Cambiar el tipo de datos para poder usarlo en el mapa (ej. ciudad, país, CP, coordenadas).
+  * Tamaño de la burbuja según métrica.
 * 🎯 **KPI** → Métricas clave.
-* 🧾 **Matriz** → Tabla con agregaciones.
+  * **Tarjetas de varias filas:** permiten mostrar varias métricas en un mismo visual.
+* **Embudo**: Ordena los datos.
+* Esquema jerarquico: Permite ver la relación entre diferentes niveles de datos.
+* **Histogramas:** Permite ver la distribución de los datos en intervalos.
+  * Crear nuevo grupo de datos para poder crear el histograma.
+  * Crear por el tamaño de discretizaciones. 
+  * Arrastrar ese grupo al eje X y al eje Y
+* **Scatter:** Permite ver la relación entre dos métricas.
+  * Elegir el grafico de dispersión y arrastrar las métricas al eje X y al eje Y. (por ejemplo el total vendido y el valor de tasacion de las casas)
+  * Ejemplo de scatter:
+    * Valores: Comunidad Autonoma, Eje X: Primedio por valor cuadrado, Eje Y: Valor por tasación, Leyenda: Comunidad Autonoma, Tamaño: Total vendido.
+    * 
 
 También se pueden añadir gráficos adicionales desde el marketplace.
 
+Se pude maquetar desde el principio como quiero que sea la estrutura de mi dashboard, para que luego solo tenga que arrastrar los campos.
+
+Se pueden poner los graficos en modo enfocado, para que se vean más grandes y con más detalle.
+
 ---
 
-## 3️⃣ Creación de gráficos 
+## Creación de gráficos 
 
 Ejemplo práctico (ventas por estado):
 
@@ -63,7 +88,7 @@ Ejemplo práctico (ventas por estado):
 💡 Se puede cambiar el tipo de gráfico sin perder los campos arrastrados.
 
 
-## 4️⃣ Mapas en Power BI 
+## Mapas en Power BI 
 
 ### Tipos:
 
@@ -99,9 +124,9 @@ Se usa un **gráfico combinado** y se activa la opción de eje secundario.
 
 ---
 
-## 6️⃣ Filtros y Segmentos (Slicers) 
+## Filtros y Segmentos (Slicers) 
 
-### 🎛 Segmentos (Slicers)
+### Segmentos (Slicers)
 
 Filtros visuales e interactivos.
 
@@ -125,7 +150,7 @@ Pueden aplicarse a:
 
 ---
 
-### ⚖️ Filtros
+### Filtros
 
 Más técnicos y precisos.
 
@@ -135,6 +160,10 @@ Tipos:
 * Nivel página
 * Nivel informe
 
+- No son visibles por defecto, pero se pueden mostrar en el panel lateral.
+- Importancia de la jerarquía: los filtros de nivel visual tienen prioridad sobre los de nivel página, y estos sobre los de nivel informe.
+
+
 Ventajas:
 
 * Mayor control.
@@ -143,19 +172,7 @@ Ventajas:
 
 ---
 
-### 🔄 Diferencia clave
-
-| Filtros         | Segmentos         |
-| --------------- | ----------------- |
-| Más técnicos    | Más visuales      |
-| Invisibles      | Siempre visibles  |
-| Mayor precisión | Mayor interacción |
-
-💡 Recomendación: combinar ambos.
-
----
-
-## 7️⃣ Uso compartido 
+## Uso compartido 
 
 Power BI Desktop es para crear, no para compartir directamente.
 
@@ -173,3 +190,5 @@ También:
 * Publicar en la nube para colaboración.
 
 --
+## Actualización de datos ya cargados 
+Si quiero actualizar los datos cargados, le doy a Tranformar Datos y en Configuracion de Origen de Datos puedo actualizar la conexión a la fuente de datos.

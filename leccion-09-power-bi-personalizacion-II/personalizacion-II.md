@@ -50,7 +50,7 @@ El objetivo es crear dashboards claros, estructurados y profesionales.
 
 ---
 
-## 3️⃣ Marcadores (Bookmarks)
+## Marcadores (Bookmarks)
 
 Los **marcadores** permiten guardar el estado de una página :
 
@@ -74,13 +74,15 @@ Se pueden configurar para recordar:
 
 Son clave para hacer dashboards dinámicos sin cambiar de página.
 
+### Pasos para crear un marcador:
+Ver/Marcadores → Panel de Marcadores → Crear nuevo marcador → Configurar opciones.
+Botones - Navegadores - Navegadores de Marcadores
+
 ---
 
-## 4️⃣ Botones Interactivos
+## Botones Interactivos
 
-Los **botones** permiten ejecutar acciones con un clic :
-
-### Acciones disponibles:
+Los **botones** permiten ejecutar acciones con un clic, acciones disponibles:
 
 * Navegar a otra página
 * Activar un marcador
@@ -88,11 +90,8 @@ Los **botones** permiten ejecutar acciones con un clic :
 * Quitar segmentaciones (reset filtros)
 * Mostrar tooltip informativo
 
-### Tipos más usados:
-
-* Botones de navegación (experiencia tipo app)
-* Botón de reinicio de filtros
-* Botón activador de marcador
-* Botón de ayuda o información
-
-📌 Son esenciales para mejorar la experiencia de usuario y hacer el dashboard más interactivo.
+### Pasos para crear un botón:
+- Insertar → Botón → Configurar acción (tipo de acción, destino, estilo).
+- Se pueden configuraar el boton vaya a algín sitio específico, o que active un marcador, o que haga reset de filtros.
+- **Boton de borrar segmentaciones:** sirve para borrar todos los filtros aplicados en la página, dejando la visualización en su estado original. Insertar → Botón → Borrar segmentaciones → Configurar acción. Solo funciona si hay segmentaciones en la página, no aplica a los filtros de nivel de página o de nivel de informe.
+- **Boton de informacion:** sirve para mostrar información adicional sobre la visualización, el informe o la empresa. Insertar → Botón → Información → Configurar acción. Se puede configurar para que muestre un tooltip con información adicional, o que abra una página de información.
