@@ -3,41 +3,8 @@
 
 En esta lección se aprende a enriquecer informes mediante visualizaciones analíticas y herramientas avanzadas de navegación .
 
-## 1️⃣ Visualizaciones Analíticas
 
-### 🔹 Histograma
-
-Power BI **no tiene un histograma nativo**, pero se puede crear de dos formas :
-
-* **Opción A:** Importar visualización personalizada desde el marketplace. (Solo si tienes cuenta corporativa).
-* **Opción B:** Simularlo con un gráfico de columnas agrupadas creando una columna de intervalos (bins) con DAX.
-
-Ejemplo de agrupación:
-
-```
-RangoEdad = INT('Clientes'[Edad]/10)*10
-```
-
-📌 El histograma permite visualizar la **distribución de una variable numérica**.
-
----
-
-### 🔹 Scatter Plot (Diagrama de dispersión)
-
-Se utiliza para analizar la relación entre dos variables numéricas .
-
-Configuración básica:
-
-* Eje X → Variable numérica
-* Eje Y → Otra variable numérica
-* Tamaño (opcional) → Medida adicional
-* Leyenda (opcional) → Variable categórica
-
-📌 Permite detectar **correlaciones, patrones y concentraciones**.
-
----
-
-## 2️⃣ Organización y Diseño del Dashboard
+## Organización y Diseño del Dashboard
 
 Se trabajan buenas prácticas de diseño :
 
@@ -47,6 +14,67 @@ Se trabajan buenas prácticas de diseño :
 * Uso coherente de colores y espacios.
 
 El objetivo es crear dashboards claros, estructurados y profesionales.
+
+--- 
+
+### 🧾 Tooltips (Información emergente)
+
+Permiten mostrar información adicional al pasar el ratón.
+
+Se pueden:
+
+* Activar en el panel de formato.
+  - Formato - > Permitir el uso como información sobre herramientas 
+  - Decidir que campo vamos a usar para que se active el Tooltip y arrastrarlo. 
+  - Crear el grafico que se va a usar como tooltip.
+
+  - Ocultar la hoja
+  -  En el grafico que se va a usar como tooltip, en formato, activar la opción de tooltip personalizado y seleccionar el grafico creado: General -> Información sobre herramientas -> Tipo de información sobre herramientas personalizada -> Seleccionar el grafico creado.
+* Crear páginas específicas como tooltip personalizados.
+
+💡 Ideal para mostrar detalles sin sobrecargar el dashboard.
+
+---
+
+## Parámetros, Grupos y Columnas Condicionales 
+
+Estas herramientas permiten hacer dashboards más dinámicos y estructurados.
+### 🎯 Parámetros
+
+Son variables reutilizables que permiten:
+
+* Cambiar rutas de archivos.
+* Filtrar datos dinámicamente.
+* Hacer el informe más flexible.
+
+Se crean en:
+Inicio → Transformar datos → Administrador de parámetros.
+
+---
+
+### 🧩 Agrupar datos (Group By)
+
+Funciona como un `GROUP BY` en SQL.
+
+Permite:
+
+* Sumar ventas por categoría.
+* Contar clientes.
+* Calcular promedios.
+
+Se usa desde Power Query con la opción **Agrupar por**.
+
+---
+
+### 🧠 Columna condicional
+
+Permite crear reglas tipo:
+
+* Si ventas > 1000 → “Alta”
+* Si ventas < 500 → “Baja”
+
+Se crea desde:
+Power Query → Agregar columna → Columna condicional.
 
 ---
 
@@ -76,6 +104,7 @@ Son clave para hacer dashboards dinámicos sin cambiar de página.
 
 ### Pasos para crear un marcador:
 Ver/Marcadores → Panel de Marcadores → Crear nuevo marcador → Configurar opciones.
+Ver/seleccion - seleccionar lo que quiero que se vea en cada momento. 
 Botones - Navegadores - Navegadores de Marcadores
 
 ---

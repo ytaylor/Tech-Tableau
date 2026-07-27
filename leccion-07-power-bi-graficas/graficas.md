@@ -64,7 +64,7 @@ Power BI ofrece muchas visualizaciones:
   * Elegir el grafico de dispersión y arrastrar las métricas al eje X y al eje Y. (por ejemplo el total vendido y el valor de tasacion de las casas)
   * Ejemplo de scatter:
     * Valores: Comunidad Autonoma, Eje X: Primedio por valor cuadrado, Eje Y: Valor por tasación, Leyenda: Comunidad Autonoma, Tamaño: Total vendido.
-    * 
+
 
 También se pueden añadir gráficos adicionales desde el marketplace.
 

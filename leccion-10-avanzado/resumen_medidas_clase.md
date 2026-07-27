@@ -2,10 +2,6 @@
 
 ## 1.  Funciones basicas de DAX en editor de consultas de DAX
 
-```dax
-EVALUATE
-'Calendario'
-```
 
 ```dax
 EVALUATE
@@ -14,23 +10,9 @@ FILTER(
     YEAR('Compraventa'[Fecha]) = 2023
 )
 ```
-```dax
-EVALUATE
-SUMMARIZECOLUMNS(
-    'Calendario'[Trimestre],
-    "Total Ventas", SUM('Compraventa'[Importe]) -- Cambia [Importe] por tu columna de valor
-)
-ORDER BY 'Calendario'[Trimestre] ASC
-```
-
-```dax
-EVALUATE
-CALCULATETABLE(
-    'Compraventa',
-    'Calendario'[DiaSemanaNro] IN {6, 7}
-)
-```
 ## 2. Crear el calendario
+Aquí estamos creando calendario con columnas, es para crear lo que afecta a todo el calendario. 
+
 ```dax
 Calendario =
 VAR FechaInicio = MIN('Compraventa'[Fecha])
@@ -51,6 +33,8 @@ ADDCOLUMNS(
 
 ### 3. Para el velocimetro
 
+Aquí vamos a crear medidas para el velocimetro y poder mostrarlo bien
+
 ```dax
 ventas_totales = CALCULATE(SUM(Compraventa[Total Vendido]), ALL(Compraventa)) 
 
@@ -59,7 +43,17 @@ num_años = CALCULATE(DISTINCTCOUNT(Calendario[Año]), ALL(Calendario))
 media_ventas = Compraventa[ventas_totales]/[num_años] 
 ```
 
+Pasos
+1. Arrastrar el velocimetro y rellenarlo con la suma total del vendido
+2.  Arrstra un segmnetador por año
+3. En el velocimetro en el total vendido poner el máximo el total vendido de nuevo. 
+4. Necesito un valor maximo que no quiero que se filtre, y ahi entra la medida. 
+4. Hacer una medida para la media para ponr un indicador
+
+
 ## 4. Para el KPIS
+
+Para comparar los KPis con el año anterior. 
 
 ```dax
 Viviendas Vendidas =

@@ -1,8 +1,5 @@
 
-# 📊 MÓDULO 4 – LECCIÓN 10 Power BI Avanzado 
----
-
-# 🧠 1️⃣ DAX (Data Analysis Expressions)
+# DAX (Data Analysis Expressions)
 
 DAX es el lenguaje de fórmulas de Power BI y permite crear cálculos dinámicos dentro del modelo. Se usa para:
 * Crear **medidas personalizadas**
@@ -57,8 +54,8 @@ Si quieres filtrar tu tabla `Compraventa` para ver solo lo que pasó en 2023:
 ```dax
 EVALUATE
 FILTER(
-    'Compraventa',
-    YEAR('Compraventa'[Fecha]) = 2023
+    'salarios',
+    YEAR('salarios'[Fecha].[Año]) = 2023
 )
 ```
 

@@ -1,7 +1,6 @@
-# 📊 Resumen – Dashboards en Power BI
----
+# 📊 Dashboards en Power BI
 
-## 1️⃣ Introducción: Página, Informe y Dashboard 
+## Introducción: Página, Informe y Dashboard 
 
 Antes de crear dashboards es importante distinguir:
 
@@ -13,7 +12,7 @@ Antes de crear dashboards es importante distinguir:
 
 ---
 
-## 2️⃣ ¿Qué es un Dashboard en Power BI? 
+## ¿Qué es un Dashboard en Power BI? 
 
 Un dashboard es una **vista visual e interactiva** que resume datos clave para facilitar la toma de decisiones rápidas.
 
@@ -73,29 +72,9 @@ Power BI permite controlar cómo interactúan los gráficos entre sí.
 
 Opciones disponibles:
 
-### 🔍 Filtrar
-
-Solo muestra los datos relacionados con la selección.
-
-👉 Ideal para análisis detallado.
-
----
-
-### 🌟 Resaltar
-
-Mantiene todos los datos visibles pero destaca la parte seleccionada.
-
-👉 Ideal para mantener contexto.
-
----
-
-### 🚫 Ignorar
-
-La visualización no se ve afectada por otras selecciones.
-
-👉 Útil para KPIs fijos o comparativas.
-
----
+- Filtrar: Solo muestra los datos relacionados con la selección.
+- Resaltar: Mantiene todos los datos visibles pero destaca la parte seleccionada.
+-  Ignorar: La visualización no se ve afectada por otras selecciones.
 
 ### Cómo configurarlo:
 
@@ -105,40 +84,7 @@ La visualización no se ve afectada por otras selecciones.
 
 ---
 
-## 4️⃣ Diseño visual del dashboard 
-
-El diseño es clave para la comprensión y experiencia del usuario.
-
----
-
-### 🧾 Tooltips (Información emergente)
-
-Permiten mostrar información adicional al pasar el ratón.
-
-Se pueden:
-
-* Activar en el panel de formato.
-  - Formato - > Permitir el uso como información sobre herramientas 
-  - Decidir que campo vamos a usar para que se active el Tooltip y arrastrarlo. 
-  - Crear el grafico que se va a usar como tooltip.
-
-  - Ocultar la hoja
-  -  En el grafico que se va a usar como tooltip, en formato, activar la opción de tooltip personalizado y seleccionar el grafico creado: General -> Información sobre herramientas -> Tipo de información sobre herramientas personalizada -> Seleccionar el grafico creado.
-* Crear páginas específicas como tooltip personalizados.
-
-💡 Ideal para mostrar detalles sin sobrecargar el dashboard.
-
----
-
-### 🎚 Sliders (Controles deslizantes)
-
-Permiten filtrar por rangos (fechas, números).
-
-Se crean usando un **segmentador** con formato de rango.
-
----
-
-### 🎨 Personalización visual
+## Diseño visual del dashboard 
 
 Se puede modificar:
 
@@ -150,7 +96,7 @@ Se puede modificar:
 
 ---
 
-### ✅ Buenas prácticas de diseño
+### Buenas prácticas de diseño
 
 * Mantener coherencia de colores.
 * No sobrecargar de gráficos.
@@ -160,50 +106,6 @@ Se puede modificar:
 
 ---
 
-## 5️⃣ Parámetros, Grupos y Columnas Condicionales 
-
-Estas herramientas permiten hacer dashboards más dinámicos y estructurados.
-
----
-
-### 🎯 Parámetros
-
-Son variables reutilizables que permiten:
-
-* Cambiar rutas de archivos.
-* Filtrar datos dinámicamente.
-* Hacer el informe más flexible.
-
-Se crean en:
-Inicio → Transformar datos → Administrador de parámetros.
-
----
-
-### 🧩 Agrupar datos (Group By)
-
-Funciona como un `GROUP BY` en SQL.
-
-Permite:
-
-* Sumar ventas por categoría.
-* Contar clientes.
-* Calcular promedios.
-
-Se usa desde Power Query con la opción **Agrupar por**.
-
----
-
-### 🧠 Columna condicional
-
-Permite crear reglas tipo:
-
-* Si ventas > 1000 → “Alta”
-* Si ventas < 500 → “Baja”
-
-Se crea desde:
-Power Query → Agregar columna → Columna condicional.
-
----
 
 ### 💡 En resumen:
 
