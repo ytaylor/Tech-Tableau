@@ -1,20 +1,208 @@
 
 # DAX (Data Analysis Expressions)
+DAX (Data Analysis Expressions) es el lenguaje de fórmulas de Power BI.
 
-DAX es el lenguaje de fórmulas de Power BI y permite crear cálculos dinámicos dentro del modelo. Se usa para:
-* Crear **medidas personalizadas**
-* Construir **columnas calculadas**
-* Modificar el contexto de filtro (`CALCULATE`)
-* Crear **KPIs dinámicos**
-* Realizar análisis temporal (YTD, YoY)
+Podemos decir que:
 
-## 🔑 Funciones clave
+> **Power Query prepara los datos.**
+>
+> **DAX los analiza.**
 
-* Agregación → `SUMX`, `DISTINCTCOUNT`, `RANKX`
-* Contexto → `CALCULATE`, `ALL`
-* Lógicas → `IF`, `SWITCH`
-* Tiempo → `DATEADD`, `SAMEPERIODLASTYEAR`
-* Relaciones → `RELATED`, `LOOKUPVALUE`
+Una analogía que suele funcionar:
+
+* **Power Query** es como la cocina: limpias, cortas y preparas los ingredientes.
+* **DAX** es el camarero: usa esos ingredientes para responder preguntas del cliente.
+
+Por ejemplo:
+
+> ¿Cuánto hemos vendido?
+>
+> ¿Qué porcentaje representa cada producto?
+>
+> ¿Cuánto crecimos respecto al año pasado?
+
+Todo eso lo responde DAX.
+
+---
+
+# ¿Cuándo usamos DAX?
+
+Cuando necesitamos realizar cálculos que dependen del análisis.
+
+Ejemplos:
+
+* Total de ventas.
+* Beneficio.
+* Ticket medio.
+* Ranking de productos.
+* Ventas acumuladas.
+* Comparación con el año anterior.
+
+No modifica los datos originales.
+
+Simplemente calcula resultados.
+
+---
+
+# Medidas vs Columnas Calculadas
+
+Esta es probablemente la parte más importante.
+
+## Columna calculada
+
+Se calcula **fila por fila**.
+
+Ejemplo:
+
+| Producto | Precio | Cantidad |
+| -------- | ------ | -------- |
+| A        | 10     | 2        |
+| B        | 15     | 3        |
+
+Creamos:
+
+```
+Importe = Precio * Cantidad
+```
+
+Resultado:
+
+| Producto | Importe |
+| -------- | ------- |
+| A        | 20      |
+| B        | 45      |
+
+Se guarda dentro del modelo.
+
+Cada fila tiene un valor.
+
+---
+
+## Medida
+
+La medida **no existe físicamente**.
+
+Se calcula cuando el usuario interactúa con el informe.
+
+Ejemplo:
+
+```
+Ventas Totales =
+SUM(Ventas[Importe])
+```
+
+Si el usuario filtra por 2025:
+
+→ devuelve ventas de 2025.
+
+Si filtra por Madrid:
+
+→ devuelve Madrid.
+
+Si filtra por Ana:
+
+→ devuelve Ana.
+
+La medida cambia continuamente.
+
+Por eso las medidas son mucho más flexibles.
+
+---
+
+# ¿Por qué casi siempre preferimos medidas?
+
+Porque:
+
+* ocupan menos memoria
+* son dinámicas
+* respetan los filtros
+* hacen el modelo más eficiente
+
+Como regla general:
+
+> Si puedes hacerlo con una medida, hazlo con una medida.
+
+---
+
+# Contexto de filtro
+
+Aquí es donde DAX se vuelve potente.
+
+Supongamos esta tabla:
+
+| Ciudad  | Ventas |
+| ------- | ------ |
+| Madrid  | 100    |
+| Madrid  | 50     |
+| Sevilla | 80     |
+
+Creamos:
+
+```
+Ventas =
+SUM(Ventas[Ventas])
+```
+
+Si ponemos una tarjeta:
+
+Resultado:
+
+230
+
+Pero si añadimos un segmentador y elegimos Madrid:
+
+Resultado:
+
+150
+
+No hemos cambiado la medida.
+
+Ha cambiado el **contexto de filtro**.
+
+Esa es la gran magia de DAX.
+
+---
+
+# Contexto de fila
+
+Solo existe cuando DAX trabaja fila por fila.
+
+Por ejemplo:
+
+```
+Importe =
+Ventas[Precio] * Ventas[Cantidad]
+```
+
+Aquí DAX sabe perfectamente cuál es la fila actual.
+
+En cambio:
+
+```
+SUM(Ventas[Precio])
+```
+
+No trabaja fila por fila.
+
+Trabaja sobre todo el conjunto.
+
+---
+
+# Resumen
+
+Power Query:
+
+* limpiar
+* transformar
+* importar
+
+DAX:
+
+* analizar
+* calcular
+* responder preguntas
+
+---
 
 ### Vista de consultas de DAX: 
 
@@ -46,7 +234,7 @@ Para que funcione en esta ventana, las consultas siempre deben empezar con la pa
 Si quieres revisar si tu tabla calendario se creó bien con todos sus campos:
 ```dax
 EVALUATE
-'Calendario'
+'salarios'
 ```
 
 #### Ejemplo 2: Ver solo las ventas de un año específico
@@ -58,68 +246,7 @@ FILTER(
     YEAR('salarios'[Fecha].[Año]) = 2023
 )
 ```
-
-#### Ejemplo 3: Crear una tabla resumen al vuelo
-Imagina que quieres ver cuánto se ha vendido por cada Trimestre (Q) sin hacer un gráfico:
-```dax
-EVALUATE
-SUMMARIZECOLUMNS(
-    'Calendario'[Trimestre],
-    "Total Ventas", SUM('Compraventa'[Importe]) -- Cambia [Importe] por tu columna de valor
-)
-ORDER BY 'Calendario'[Trimestre] ASC
-```
-
-#### Ejemplo 4: Probar una medida compleja
-Si quieres calcular el promedio de ventas pero solo de los fines de semana:
-```dax
-EVALUATE
-CALCULATETABLE(
-    'Compraventa',
-    'Calendario'[DiaSemanaNro] IN {6, 7}
-)
-```
 --- 
-
-# Donde crear medidas, columnas y tablas
-
-### 1. Nueva Medida (Lo más común)
-Las **medidas** son para cálculos que cambian según los filtros que apliques en tus gráficos (como sumas, promedios, comparaciones con el año pasado). No crean datos "físicos" en la tabla, sino que se calculan en el momento.
-
-*   **Dónde:** Haz clic derecho sobre cualquier tabla en el panel de **Datos** (a la derecha) y selecciona **Nueva medida**.
-*   **Ejemplo:** Aquí es donde pondrías el cálculo de las compraventas:
-    ```dax
-    Total Compraventas = SUM('Compraventa'[Total])
-    ```
-*   **Icono:** Aparecerá con un icono de una **calculadora** pequeña.
-
-### 2. Nueva Columna Calculada
-Las **columnas** se calculan fila por fila y se guardan en la memoria de tu modelo. Se usan para crear nuevas categorías, etiquetas o para usar en los ejes de tus gráficos (como el "Año", "Mes" o "Trimestre").
-
-*   **Dónde:** En la pestaña **Inicio** o **Modelado**, haz clic en **Nueva columna**.
-*   **Ejemplo:** Si quieres saber si una fila de `valor_m2_provincias` es cara o barata:
-    ```dax
-    Rango Precio = IF('valor_m2_provincias'[Valor_Tasado_€_m2] > 2000, "Caro", "Barato")
-    ```
-*   **Icono:** Aparecerá con un icono de una **tabla con una columna resaltada**.
-
-### 3. Nueva Tabla
-Esto se usa para crear tablas independientes, como la tabla **Calendario** que ya hiciste.
-
-*   **Dónde:** Ve a la pestaña **Modelado** y haz clic en **Nueva tabla**.
-*   **Ejemplo:** Tu tabla calendario:
-    ```dax
-    Calendario = CALENDAR(MIN('Compraventa'[Fecha]), MAX('Compraventa'[Fecha]))
-    ```
-### ¿Cuál elegir?
-
-| Si quieres... | Usa... | ¿Dónde se ve? |
-| :--- | :--- | :--- |
-| Sumar, promediar o comparar valores (KPIs) | **Nueva Medida** | Solo en los gráficos (no se ve en la tabla de datos) |
-| Crear un filtro nuevo o una categoría fija | **Nueva Columna** | Se ve como una columna más en tu tabla de datos |
-| Crear una tabla de fechas o una tabla resumen | **Nueva Tabla** | Aparece como una tabla nueva en tu lista de tablas |
-
----
 
 # 📅 2️⃣ Tablas de Calendario
 
@@ -166,46 +293,60 @@ ADDCOLUMNS(
 "Trimestre", "T" & QUARTER([Date])
 ````
 
+---
 
+# Donde crear medidas, columnas y tablas
 
+### 1. Nueva Medida (Lo más común)
+Las **medidas** son para cálculos que cambian según los filtros que apliques en tus gráficos (como sumas, promedios, comparaciones con el año pasado). No crean datos "físicos" en la tabla, sino que se calculan en el momento.
+
+*   **Dónde:** Haz clic derecho sobre cualquier tabla en el panel de **Datos** (a la derecha) y selecciona **Nueva medida**.
+*   **Ejemplo:** Aquí es donde pondrías el cálculo de las compraventas:
+    ```dax
+    Total Compraventas = SUM('Compraventa'[Total])
+    ```
+*   **Icono:** Aparecerá con un icono de una **calculadora** pequeña.
+
+### 2. Nueva Columna Calculada
+Las **columnas** se calculan fila por fila y se guardan en la memoria de tu modelo. Se usan para crear nuevas categorías, etiquetas o para usar en los ejes de tus gráficos (como el "Año", "Mes" o "Trimestre").
+
+*   **Dónde:** En la pestaña **Inicio** o **Modelado**, haz clic en **Nueva columna**.
+*   **Ejemplo:** Si quieres saber si una fila de `valor_m2_provincias` es cara o barata:
+    ```dax
+    Rango Precio = IF('valor_m2_provincias'[Valor_Tasado_€_m2] > 2000, "Caro", "Barato")
+    ```
+*   **Icono:** Aparecerá con un icono de una **tabla con una columna resaltada**.
+
+### 3. Nueva Tabla
+Esto se usa para crear tablas independientes, como la tabla **Calendario** que ya hiciste.
+
+*   **Dónde:** Ve a la pestaña **Modelado** y haz clic en **Nueva tabla**.
+*   **Ejemplo:** Tu tabla calendario:
+    ```dax
+    Calendario = CALENDAR(MIN('Compraventa'[Fecha]), MAX('Compraventa'[Fecha]))
+    ```
+### ¿Cuál elegir?
+
+| Si quieres... | Usa... | ¿Dónde se ve? |
+| :--- | :--- | :--- |
+| Sumar, promediar o comparar valores (KPIs) | **Nueva Medida** | Solo en los gráficos (no se ve en la tabla de datos) |
+| Crear un filtro nuevo o una categoría fija | **Nueva Columna** | Se ve como una columna más en tu tabla de datos |
+| Crear una tabla de fechas o una tabla resumen | **Nueva Tabla** | Aparece como una tabla nueva en tu lista de tablas |
 
 ---
 
-# 🔗 3️⃣ Unión y Relaciones entre Tablas
-
-
+# Unión y Relaciones entre Tablas
 
 Un modelo bien diseñado mejora rendimiento y claridad.
 
-## Opciones
-
-1️⃣ Relaciones en modelo (1:N recomendable)
-2️⃣ Power Query (joins físicos)
-3️⃣ DAX (`RELATED`, `UNION`)
-
-## Recomendación
+**Recomendación**
 
 Modelo en estrella (Dimensiones + Tabla de hechos).
-
 ⚠️ Evitar relaciones muchos a muchos innecesarias.
 
----
-
-# 📊 4️⃣ Ordenar Ejes
 
 
-
-Un mal orden puede romper la narrativa visual.
-
-Ejemplo típico:
-Meses ordenados alfabéticamente ❌
-Solución → “Ordenar por columna” usando NúmeroMes ✔
-
-🎯 El orden debe reforzar la historia que cuentan los datos.
-
----
-
-# 🎯 5️⃣ Gráfico de Velocímetro
+# 🎯 Gráfico de Velocímetro
 
 
 
@@ -226,13 +367,23 @@ Ideal para mostrar progreso frente a un objetivo.
 
 ⚠️ No usarlo para comparar muchas categorías.
 
-## Pasos para crear un velocímetro
-1. Crear una medida para el valor actual (ej. ventas totales).
+## Pasos para crear un velocímetroç
+1. Insertar un visual del velocimetro con la suma del Total Vendido. +
+2. Añadir un filtro por año del Calendario 
+    - (me tengo que asegurar que los años están bien relacionados). 
+    - Ese filtro por año en modo Mosaico.  
+    - Mostrar que no funciona bien el velocimetro, siempre muestra la mitad Y el total el doble. 
+    - Explicar que no es lo mas adecuado, cual es el objetivo. 
+3. Añadir al velocimetro el valor máximo, el valor de destino
+ - Mostrar que pasa lo mismo. 
+ - Y mostrar que la necesidad de una medida fija que no se filtra, ahi sacamos la medida suma total. 
+
+4. Crear una medida para el valor actual (ej. ventas totales).
 ```dax
-ventas_totales = CALCULATE(SUM(Compraventa[Total Vendido]), ALL(Compraventa)) 
+viviendas_vendidas = CALCULATE(SUM(Compraventa[Total Vendido]), ALL(Compraventa)) 
 ```
 
-2. Crear medidas para el mínimo (ej. 0), máximo (ej. objetivo) y objetivo (ej. 100,000).
+5. Crear medidas para el mínimo (ej. 0), máximo (ej. objetivo) y objetivo (ej. 100,000).
 
 ```dax
 num_años = CALCULATE(DISTINCTCOUNT(Calendario[Año]), ALL(Calendario))
@@ -240,34 +391,28 @@ num_años = CALCULATE(DISTINCTCOUNT(Calendario[Año]), ALL(Calendario))
 media_ventas = Compraventa[ventas_totales]/[num_años] 
 ```
 
-3. Insertar el visual de velocímetro y asignar las medidas a cada campo correspondiente.
-
-
-
+6. En el visual de velocímetro y asignar las medidas a cada campo correspondiente.
+- Media de ventas la añado a valor destino. 
+- viviendas vendidas le añadoia valor maximo
 ---
 
-# 📈 6️⃣ KPIs en Power BI
+# KPIs en Power BI
 
 Un **KPI (Key Performance Indicator)** es un indicador clave que mide el rendimiento frente a un objetivo.
+- El visual de KPI muestra:
+    * Valor actual
+    * Valor objetivo o comparación
+    * Dirección visual (flecha o color)
+    * Tendencia temporal
 
-## El visual de KPI muestra:
+-  Requisitos para que funcione, necesitas:
+    - Una **medida DAX principal**
+    - Una **medida de comparación** (objetivo o año anterior)
+    - Una **columna de fecha** en el eje de tendencia (obligatoria)
 
-* Valor actual
-* Valor objetivo o comparación
-* Dirección visual (flecha o color)
-* Tendencia temporal
+## Pasos para  hacer el KPI Comparativo
 
-## 🔹 Requisitos para que funcione
-
-Necesitas:
-
-✅ Una **medida DAX principal**
-✅ Una **medida de comparación** (objetivo o año anterior)
-✅ Una **columna de fecha** en el eje de tendencia (obligatoria)
-
-### 1. Asegura la relación con la tabla Calendario
-
-En la **Vista de modelo**:
+1. Asegura la relación con la tabla Calendario. En la **Vista de modelo**:
 
 1. Arrastra `Calendario[Date]` → `Compraventa[Fecha]` (o la columna de fecha que estés usando).
 2. Confirma que la relación es **1:* (uno a muchos)** y está **activa (línea sólida)**.
@@ -320,9 +465,7 @@ CALCULATE(
    - `[Viviendas Vendidas Año Anterior]` mostrará 2023.
    - El gráfico/ KPI se actualizará automáticamente.
 
-
 ---
-
 ## 🔹 Buenas prácticas
 
 ✅ Usar colores semánticos (verde, rojo)
@@ -334,9 +477,76 @@ CALCULATE(
 
 ---
 
-# 🆚 7️⃣ Power BI vs Tableau
+# Ordenar Ejes
+
+Un mal orden puede romper la narrativa visual. Ejemplo típico:
+- Meses ordenados alfabéticamente ❌
+- Solución → “Ordenar por columna” usando NúmeroMes ✔
+
+🎯 El orden debe reforzar la historia que cuentan los datos.
+
+### Pasos para crear un eje ordenado:
+- Crear un grafico de barras para mostrar los datos por dia
+- Ver que eno sale ordneado, por defecto la opción de ordenar los hace por la medida, por ejemplo por la suma total vendida. 
+- Herramientas de Columnas, ordenar por columna por el día semana nro. 
+
+---
 
 
+# Parámetros en Power Query
+
+Un parámetro es una variable cuyo valor podemos cambiar fácilmente.
+
+En lugar de escribir un dato fijo:
+
+```
+Servidor = "SQL01"
+```
+
+utilizamos:
+
+```
+Servidor = ParámetroServidor
+```
+
+Así, si mañana cambia el servidor, solo modificamos el parámetro.
+
+No tenemos que editar todas las consultas.
+
+Los parámetros hacen que las consultas sean más flexibles
+
+### Paso a paso:
+
+"Está muy bien ver las ventas por año, pero ahora quiero ver solo las ventas de una Comunidad Autónoma." 
+1.  En Power BI Desktop:
+
+Modelado → Nuevo parámetro → Campos
+
+2. Seleccionas:
+
+- Año
+- Comunidad Autónoma
+- Provincia
+
+3. Power BI crea automáticamente una tabla similar a esta:
+
+- Campo
+- Año
+- Comunidad Autónoma
+- Provincia
+
+Y además genera una medida.
+
+4. Solo tienes que:
+
+- Arrastrar el parámetro al eje X del gráfico.
+- Arrastrar Ventas al eje Y.
+- Añadir el parámetro como segmentador.
+
+
+---
+
+# 🆚 Power BI vs Tableau
 
 | Power BI              | Tableau                             |
 | --------------------- | ----------------------------------- |
